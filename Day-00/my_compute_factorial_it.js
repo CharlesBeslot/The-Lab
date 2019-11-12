@@ -9,10 +9,6 @@ function my_compute_factorial_it(inputNb){
     if (Number.isInteger(inputNb)){
         console.log(nb)
     }
-    else if (inputNb == 0){
-        nb = 1
-        console.log(nb)
-    }
     else if (!Number.isInteger(inputNb)){
         console.log('Seul les nombres entiers sont acceptés')
     }
