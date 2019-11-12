@@ -1,5 +1,10 @@
 function my_compute_factorial_rec(inputNb){
 
+    if (!Number.isInteger(inputNb)){
+        console.log('Seul les nombres entiers sont acceptés')
+        return
+    }
+
     if(inputNb == 0){
         return 1
     }
@@ -11,4 +16,9 @@ function my_compute_factorial_rec(inputNb){
 var result = require('minimist')(process.argv.slice(2))
 inputNb = result._[0]
 var res = my_compute_factorial_rec(inputNb)
-console.log(res)
+if(res == undefined){
+    return
+}
+else {
+    console.log(res)
+}

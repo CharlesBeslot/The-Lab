@@ -1,14 +1,14 @@
-function my_compute_factorial_it(inputNb){
+function my_compute_power_it(inputNb, inputP){
 
-    if (!Number.isInteger(inputNb)){
+    if (!Number.isInteger(inputNb) || !Number.isInteger(inputP)){
         console.log('Seul les nombres entiers sont acceptés')
         return
     }
 
     let nb = 1
     
-    for (let i = 1; i<inputNb+1; i++) {
-        nb *= i 
+    for (let i = 0; i<inputP; i++) {
+        nb *= inputNb 
     }
 
     console.log(nb)
@@ -18,4 +18,5 @@ function my_compute_factorial_it(inputNb){
 
 var result = require('minimist')(process.argv.slice(2))
 inputNb = result._[0]
-my_compute_factorial_it(inputNb)
+inputP = result._[1]
+my_compute_power_it(inputNb, inputP)
