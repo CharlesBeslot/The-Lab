@@ -7,7 +7,6 @@ String.prototype.my_includes = function(searchedChain, index) {
         index = 0
     } 
     for (var i = 0; i < charArray1.length - charArray2.length + 1; i++) {
-        //index = 0
         for(var j = 0; j < charArray2.length; j++){
             if(charArray1[i+j] == charArray2[j]){
                 index++
