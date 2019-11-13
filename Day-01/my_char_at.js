@@ -1,9 +1,9 @@
 String.prototype.my_char_at = function(index){
-    
-    let myString = this.valueOf()
-    var letterAt = ""
+
+    let inputStr = this.valueOf()
+    var strResult = ""
     for(var i=0; i < index+1 ; i++){
-        letterAt = myString[i]
+        strResult = inputStr[i]
     }
-    return letterAt
+    return strResult
  }
