@@ -1,5 +1,6 @@
-module.exports = function my_to_lower_case(){
-    let inputStr = this
+String.prototype.my_to_lower_case = function () {
+    
+    let inputStr = this.valueOf()
     var strResult = ""
     for (var i = 0; i < inputStr.length; i++) {
 
@@ -12,4 +13,4 @@ module.exports = function my_to_lower_case(){
         }
     }
     return strResult
- }
+}
