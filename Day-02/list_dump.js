@@ -1,15 +1,10 @@
 module.exports = function (list) {
-    
-    if (list.data == null || list.data == undefined) {
-        list.data = 0
+
+
+    let current = list
+    while (current != null) {
+        console.log(current.data)
+        current = current.next
     }
-    else {
-        
-        let current = list
-        while (current != null) {
-            console.log(current.data)
-            current = current.next
-        }
-        return 
-    }
+    return
 }
