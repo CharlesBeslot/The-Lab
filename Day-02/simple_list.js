@@ -1,4 +1,4 @@
-module.exports = class linkedListNode {
+module.exports = class LinkedListNode {
 
     constructor(data){
         this.data = data
