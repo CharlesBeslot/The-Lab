@@ -15,7 +15,7 @@ module.exports = function (tree) {
         return 1
     }
     if (tree.left != null || tree.right != null) {
-        
+
         if (tree.right != null) {
             tree = tree.right
             if (tree != null) {
@@ -28,7 +28,7 @@ module.exports = function (tree) {
                 newTree1 = newTree1.right
                 while (newTree1 != null) {
                     iRight++
-                    newTree1= newTree1.left
+                    newTree1 = newTree1.left
                 }
             }
         }
@@ -47,7 +47,7 @@ module.exports = function (tree) {
                     newTree3 = newTree3.left
                 }
             }
-            
+
         }
         return iRight + iLeft - 1
     }
