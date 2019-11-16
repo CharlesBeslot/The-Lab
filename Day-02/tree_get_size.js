@@ -14,40 +14,41 @@ module.exports = function (tree) {
 
         return 1
     }
-
-    if (tree.right != null) {
-        tree = tree.right
-        if (tree != null) {
-            while (tree != null) {
-                iRight++
-                tree = tree.right
+    if (tree.left != null || tree.right != null) {
+        
+        if (tree.right != null) {
+            tree = tree.right
+            if (tree != null) {
+                while (tree != null) {
+                    iRight++
+                    tree = tree.right
+                }
+            }
+            if (tree == null) {
+                newTree1 = newTree1.right
+                while (newTree1 != null) {
+                    iRight++
+                    newTree1= newTree1.left
+                }
             }
         }
-        if (tree == null) {
-            newTree1 = newTree1.right
-            while (newTree1 != null) {
-                iRight++
-                newTree1= newTree1.left
+        if (newTree2.left != null) {
+            newTree2 = newTree2.left
+            if (newTree2 != null) {
+                while (newTree2 != null) {
+                    iLeft++
+                    newTree2 = newTree2.right
+                }
             }
-        }
-    }
-    if (newTree2.left != null) {
-        newTree2 = newTree2.left
-        if (newTree2 != null) {
-            while (newTree2 != null) {
-                iLeft++
-                newTree2 = newTree2.right
-            }
-        }
-        if (newTree2 == null) {
-            newTree3 = newTree3.left
-            while (newTree3 != null) {
-                iLeft++
+            if (newTree2 == null) {
                 newTree3 = newTree3.left
+                while (newTree3 != null) {
+                    iLeft++
+                    newTree3 = newTree3.left
+                }
             }
+            
         }
-
+        return iRight + iLeft - 1
     }
-    return iRight + iLeft + 1
-
 }
