@@ -45,6 +45,25 @@ function bistro(str) {
         }
     }
 
+    function spliceTab(tab, index, nbIndex, indexReplace) {
+        if(index+nbIndex > tab.length){
+            console.log("Votre nombre d'éléments à remplacer est supérieur à la taille du tableau")
+            return tab
+        }
+        var newTab = []
+        var counter = 0;
+        for(var i=0; i<tab.length; i++){
+            if(i == index) {
+                newTab[counter] = indexReplace
+                counter++
+            } else if(i < index || i > index + nbIndex -1){
+                newTab[counter] = tab[i]
+                counter++
+            }
+        }
+        return newTab
+    }
+
     function round(res) {
         resString = `${res}`
         resSplited = splitPoint(resString)
@@ -72,7 +91,7 @@ function bistro(str) {
                 console.log("op ()")
                 console.log(elem[i + 2])
                 calc = calculate(elem[i + 1], elem[i + 2], elem[i + 3])
-                elem.splice(i, 5, calc)
+                elem = spliceTab(elem, i, 5, calc)
                 i = 0
             }
         }
@@ -81,7 +100,7 @@ function bistro(str) {
             if (elem[i] == '*' || elem[i] == '/' || elem[i] == '%') {
                 console.log("op1")
                 calc = calculate(elem[i - 1], elem[i], elem[i + 1])
-                elem.splice(i - 1, 3, calc)
+                elem = spliceTab(elem, i - 1, 3, calc)
                 i = 0
             }
         }
@@ -90,7 +109,7 @@ function bistro(str) {
             if (elem[i] == '+' || elem[i] == '-') {
                 console.log("op2")
                 calc = calculate(elem[i - 1], elem[i], elem[i + 1])
-                elem.splice(i - 1, 3, calc)
+                elem = spliceTab(elem, i - 1, 3, calc)
                 i = 0
             }
         }
