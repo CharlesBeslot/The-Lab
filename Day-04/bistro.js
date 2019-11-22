@@ -2,13 +2,13 @@ function bistro(str) {
 
     function isOperator(operator) {
         if (operator == '+' || operator == '-' || operator == '*' || operator == '/' || operator == '%') {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     function split(str) {
-        var split = [""];
+        var split = [""]
         if (typeof str === 'string') {
             for (var i = 0; i < str.length; i++) {
                 if (!isOperator(str[i]) && str[i] == '(') {
@@ -31,7 +31,7 @@ function bistro(str) {
     }
 
     function splitPoint(str) {
-        var split = [""];
+        var split = [""]
         if (typeof str === 'string') {
             for (var i = 0; i < str.length; i++) {
                 if (str[i] !== ".") {
@@ -45,13 +45,27 @@ function bistro(str) {
         }
     }
 
+    function simpleSplit(str) {
+        var split = [""]
+        if (typeof str === 'string') {
+            for (var i = 0; i < str.length; i++) {
+                split[split.length - 1] += str[i]
+
+                if (split[split.length - 1]) {
+                    split.push("")
+                }
+            }
+            return split
+        }
+    }
+
     function spliceTab(tab, index, nbIndex, indexReplace) {
         if (index + nbIndex > tab.length) {
             console.log("Votre nombre d'éléments à remplacer est supérieur à la taille du tableau")
             return tab
         }
         var newTab = []
-        var counter = 0;
+        var counter = 0
         for (var i = 0; i < tab.length; i++) {
             if (i == index) {
                 newTab[counter] = indexReplace
@@ -65,11 +79,17 @@ function bistro(str) {
     }
 
     function round(res) {
-        resString = `${res}`
-        resSplited = splitPoint(resString)
-        newRes = 0
+        let resString = `${res}`
+        let resSplited = splitPoint(resString)
+        console.log(resSplited)
+        let newSplit = simpleSplit(resSplited[1])
+        console.log(newSplit)
+        let newRes = 0
+        if(newSplit == null || newSplit === undefined){
+            return res
+        }
         for (var i = 0; i < resSplited.length; i++) {
-            if ((resSplited[1] * 1) >= 5) {
+            if (newSplit[0] >= 5) {
                 newRes = (resSplited[0] * 1) + 1
             }
             else {
@@ -167,12 +187,18 @@ function bistro(str) {
     }
 
     function bigNumber(nb) {
+        if(nb === Infinity){
+            return console.log("le nombre entrer est considéré comme infini")
+        }
+        if(nb <= Number.MAX_SAFE_INTEGER){
+            return `${nb}`
+        }
         var result = ''
         var xStr = `${nb}`
         var digitCount = xStr.indexOf('e') === -1 ? xStr.length : ((mySubStr(xStr, xStr.indexOf('e') + 1)) * 1 + 1)
         for (var i = 1; i <= digitCount; i++) {
             var mod = `${(nb % 10 ** i)}`
-            var exponent = (mod.indexOf('e') === -1) ? 0 : (mod.substr(mod.indexOf('e') + 1)) * 1;
+            var exponent = (mod.indexOf('e') === -1) ? 0 : (mod.substr(mod.indexOf('e') + 1)) * 1
             if ((exponent === 0 && mod.length !== i) || (exponent > 0 && exponent !== i - 1)) {
                 result = '0' + result
             }
@@ -186,9 +212,9 @@ function bistro(str) {
     var result = priorityCalc(elem)
     result = bigNumber(result)
     result = round(result)
-    result = bigNumber(result)
+    //result = bigNumber(result)
     return result
 }
 
-var res = bistro("(3+2444444444444444444444)*92222222")
+var res = bistro("6789.162*78547899.333")
 console.log(res)
