@@ -4,14 +4,14 @@ function bistro(str) {
 
         if (operator == '+' || operator == '-' || operator == '*' || operator == '/' || operator == '%') {
 
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     function split(str) {
 
-        var split = [""];
+        var split = [""]
 
         if (typeof str === 'string') {
 
@@ -19,24 +19,24 @@ function bistro(str) {
 
                 if (!isOperator(str[i]) && str[i] == '(') {
 
-                    split[split.length - 1] += str[i];
-                    split.push("");
+                    split[split.length - 1] += str[i]
+                    split.push("")
                 }
                 else if (!isOperator(str[i]) && str[i] == ')') {
 
-                    split.push("");
-                    split[split.length - 1] += str[i];
+                    split.push("")
+                    split[split.length - 1] += str[i]
 
                 }
                 else if (!isOperator(str[i])) {
 
-                    split[split.length - 1] += str[i];
+                    split[split.length - 1] += str[i]
                 }
                 else if (split[split.length - 1]) {
 
-                    split.push("");
-                    split[split.length - 1] += str[i];
-                    split.push("");
+                    split.push("")
+                    split[split.length - 1] += str[i]
+                    split.push("")
                 }
             }
             return split
@@ -45,7 +45,7 @@ function bistro(str) {
 
     function splitPoint(str) {
 
-        var split = [""];
+        var split = [""]
 
         if (typeof str === 'string') {
 
@@ -53,11 +53,11 @@ function bistro(str) {
 
                 if (str[i] !== ".") {
 
-                    split[split.length - 1] += str[i];
+                    split[split.length - 1] += str[i]
                 }
                 else if (split[split.length - 1]) {
 
-                    split.push("");
+                    split.push("")
                 }
             }
             return split
@@ -74,7 +74,7 @@ function bistro(str) {
         }
 
         var newTab = []
-        var counter = 0;
+        var counter = 0
 
         for (var i = 0; i < tab.length; i++) {
 
@@ -206,7 +206,7 @@ function bistro(str) {
         div: '/',
         mlt: '*',
         mod: '%',
-    };
+    }
 
     function calculate(a, op, b) {
 
@@ -214,29 +214,29 @@ function bistro(str) {
             console.log("Un des nombres n'est pas valide")
             return
         }
-        a = a * 1;
-        b = b * 1;
+        a = a * 1
+        b = b * 1
         let result = ''
         if (isOperator(op)) {
 
             switch (op) {
                 case f.add:
-                    result = a + b;
-                    break;
+                    result = a + b
+                    break
                 case f.sub:
-                    result = a - b;
-                    break;
+                    result = a - b
+                    break
                 case f.div:
-                    result = a / b;
-                    break;
+                    result = a / b
+                    break
                 case f.mlt:
-                    result = a * b;
-                    break;
+                    result = a * b
+                    break
                 case f.mod:
-                    result = a % b;
-                    break;
+                    result = a % b
+                    break
                 default:
-                    null;
+                    null
 
             }
             return result
@@ -268,7 +268,7 @@ function bistro(str) {
         } 
         else {
             console.log("Vos données ne sont pas de type string")
-            return;
+            return
         }
         return nexStr
     }
@@ -283,24 +283,24 @@ function bistro(str) {
             return `${nb}`
         }
 
-        var result = '';
-        var xStr = `${nb}`;
+        var result = ''
+        var xStr = `${nb}`
         var digitCount = xStr.indexOf('e') === -1 ? xStr.length : ((mySubStr(xStr, xStr.indexOf('e') + 1)) * 1 + 1)
 
         for (var i = 1; i <= digitCount; i++) {
 
-            var mod = `${(nb % 10 ** i)}`;
-            var exponent = (mod.indexOf('e') === -1) ? 0 : (mod.substr(mod.indexOf('e') + 1)) * 1;
+            var mod = `${(nb % 10 ** i)}`
+            var exponent = (mod.indexOf('e') === -1) ? 0 : (mod.substr(mod.indexOf('e') + 1)) * 1
 
             if ((exponent === 0 && mod.length !== i) || (exponent > 0 && exponent !== i - 1)) {
 
-                result = '0' + result;
+                result = '0' + result
             }
             else {
-                result = mod.charAt(0) + result;
+                result = mod.charAt(0) + result
             }
         }
-        return result;
+        return result
     }
 
     var result = priorityCalc(elem)
