@@ -55,7 +55,6 @@ function bistro(str) {
 
                     split[split.length - 1] += str[i];
                 }
-
                 else if (split[split.length - 1]) {
 
                     split.push("");
@@ -84,7 +83,8 @@ function bistro(str) {
                 newTab[counter] = indexReplace
                 counter++
 
-            } else if (i < index || i > index + nbIndex - 1) {
+            } 
+            else if (i < index || i > index + nbIndex - 1) {
 
                 newTab[counter] = tab[i]
                 counter++
@@ -129,7 +129,6 @@ function bistro(str) {
 
                 newRes = (resSplited[0] * 1) + 1
             }
-
             else {
 
                 newRes = resSplited[0] * 1
@@ -242,7 +241,8 @@ function bistro(str) {
             }
             return result
 
-        } else {
+        } 
+        else {
 
             console.log("Votre opérateur n'est pas valide")
             return
@@ -265,7 +265,8 @@ function bistro(str) {
                 nexStr += str[i]
             }
 
-        } else {
+        } 
+        else {
             console.log("Vos données ne sont pas de type string")
             return;
         }
@@ -307,7 +308,6 @@ function bistro(str) {
     result = bigNumber(result)
     console.log(result)
     result = round(result)
-    // result = bigNumber(result)
     return result
 
 }
